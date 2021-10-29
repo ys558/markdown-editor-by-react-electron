@@ -38,3 +38,71 @@ yarn add -D @types/react @types/react-dom @typescript-eslint/parser eslint-confi
 ++  "prettier"
   ],
 ```
+
+```json
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+++  "jsx": "react",
+++  "allowSyntheticDefaultImports": true,
+    "paths": {
+      "/@/*": [
+        "./src/*"
+      ]
+    },
+    "lib": ["ESNext", "dom", "dom.iterable"]
+  },
+
+  "include": [
+--  "src/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "types/**/*.d.ts",
+    "../../types/**/*.d.ts",
+    "../preload/types/electron-api.d.ts"
+  ]
+}
+```
+
+`touch prettier.config.js`
+```js
+const options = {
+  arrowParens: 'avoid',
+  singleQuote: true,
+  bracketSpacing: true,
+  endOfLine: 'lf',
+  semi: false,
+  tabWidth: 2,
+  trallingComma: 'none'
+}
+
+module.exports = options
+```
+
+## remove all the `vue` configs in project:
+
+`packages/renderer/vite.config.js`
+```js
+-- import vue from '@vitejs/plugin-vue';
+
+...
+
+-- plugins: [vue()],
+++ plugins: [],
+
+...
+```
+
+`rm packages/renderer/types/shims-vue.d.ts`
+
+delete all the `.vue` files:
+```bash
+find packages -type f | grep vue | xargs rm
+```
+
+rename `index.ts` to `index.tsx`
+```bash
+cd packages/renderer/src
+mv index.ts index.tsx
+```
