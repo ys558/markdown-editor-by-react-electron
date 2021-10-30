@@ -107,5 +107,38 @@ cd packages/renderer/src
 mv index.ts index.tsx
 ```
 
-## write react things
+## integrate React in project
+
+`touch` new files as: `packages/renderer/src/app.tsx`. `packages/renderer/src/index.tsx` and style with `packages/renderer/src/app.css` and `packages/renderer/src/index.css`
+
+
+### setting whole windows transparent
+
+`packages/main/src/index.ts`
+
+```js
+const createWindow = async () => {
+  mainWindow = new BrowserWindow({
+    ...
+++  vibrancy: 'under-window',
+++  visualEffectState: 'active',
+    ...
+  });
+```
+
+`packages/renderer/src/app.css`
+```css
+html, body {
+  background-color: transparent;
+}
+```
+
+`packages/renderer/src/index.css`
+```css
+html, body {
+  background-color: transparent;
+}
+```
+
+## 
 
