@@ -106,3 +106,6 @@ rename `index.ts` to `index.tsx`
 cd packages/renderer/src
 mv index.ts index.tsx
 ```
+
+## write react things
+
