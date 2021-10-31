@@ -140,5 +140,8 @@ html, body {
 }
 ```
 
-## 
+### 
 
+```bash
+yarn add @codemirror/state @codemirror/commands @codemirror/history @codemirror/language @codemirror/matchbrackets @codemirror/gutter @codemirror/highlight @codemirror/lang-javascript
+```
