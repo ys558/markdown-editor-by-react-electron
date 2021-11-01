@@ -9,6 +9,7 @@ interface Props {
 
 const Editor: React.FC<Props> = (props) => {
   const { onChange, initialDoc } = props
+  
   const handleChange = useCallback(
     state => onChange(state.doc.toString()),
     [onChange]
@@ -23,7 +24,7 @@ const Editor: React.FC<Props> = (props) => {
   }, [editorView])
 
   return <div className="edior-wrapper" ref={refContainer}>
-    Editor
+    
   </div>
 }
 
